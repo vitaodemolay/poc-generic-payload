@@ -1,0 +1,32 @@
+@baseurl=http://localhost:8080
+
+GET {{baseurl}}/ping
+
+###
+POST {{baseurl}}/api/v1/shapes
+Content-Type: application/json
+
+{
+  "description": "A circle with a radius of 5 units",
+  "shapeType": "circle",
+  "startPoint": {
+    "x": 10,
+    "y": 15
+  },
+  "parameters": { 
+    "radius": 5 
+  }
+}
+###
+
+@shapeId=d1q4falroejs6l9o3j0g
+GET {{baseurl}}/api/v1/shapes/{{shapeId}}
+###
+PUT {{baseurl}}/api/v1/shapes/{{shapeId}}
+Content-Type: application/json 
+{
+    "newPoint": {
+        "x": 10,
+        "y": 15
+  },
+}
